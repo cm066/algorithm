@@ -62,13 +62,6 @@ public class ReverseList {
         while (head != null){
             ListNode tmp = head.next;
             head.next = null;
-//            if (headNode.next == null){
-//                headNode.next = head;
-//            }else {
-//                ListNode tmp1 = headNode.next;
-//                head.next = tmp1;
-//                headNode.next = head;
-//            }
             ListNode tmp1 = headNode.next;
             head.next = tmp1;
             headNode.next = head;
