@@ -50,4 +50,13 @@ public class Trie {
         }
         return node;
     }
+
+    public Trie[] getChildren() {
+        return children;
+    }
+
+    public boolean isEnd() {
+        return isEnd;
+    }
+
 }
