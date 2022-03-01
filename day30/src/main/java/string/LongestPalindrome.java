@@ -7,9 +7,49 @@ package string;
  */
 public class LongestPalindrome {
     public static void main(String[] args) {
-        String s = "bb";
-        String s1 = longestPalindrome(s);
+        String s = "babab";
+        String dp = dp(s);
+        System.out.println(dp);
+//        String s1 = longestPalindrome(s);
 //        System.out.println(s1);
+    }
+    public static String dp(String s){
+      int len = s.length();
+      if (len < 2){
+          return s;
+      }
+      int maxLen=1;
+      int begin = 0;
+      boolean[][] dp = new boolean[len][len];
+      //对角线都是为true表示自己和自己肯定是相等的啊
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+        char[] charArray = s.toCharArray();
+        for (int L = 2; L <= len; L++) {
+            for (int i = 0; i < len; i++) {
+                //由l和i来确定右边界
+                int j  = L + i -1;
+                if (j >= len){
+                    break;
+                }
+                if (charArray[i] != charArray[j]){
+                    dp[i][j] = false;
+                }else{
+                    if (j-i < 3){
+                        dp[i][j] = true;
+                    }else {
+                        dp[i][j] = dp[i+1][j-1];
+                    }
+                }
+                // 只要 dp[i][L] == true 成立，就表示子串 s[i..L] 是回文，此时记录回文长度和起始位置
+                if (dp[i][j] && j - i + 1 > maxLen) {
+                    maxLen = j - i + 1;
+                    begin = i;
+                }
+            }
+        }
+        return s.substring(begin, begin + maxLen);
     }
     public static String longestPalindrome(String s) {
         if (s == null || s.length() < 1) {

@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * @author Administrator
  */
-public class RBTree<T extends Comparable<T>>{
+public class  RBTree<T extends Comparable<T>>{
     private final RBTreeNode<T> root;
 
     private AtomicLong size = new AtomicLong(0);

@@ -44,6 +44,7 @@ public class LargestRectangleArea {
             //peekLast() 返回栈顶元素但是不移除
             while (heights[stack.peekLast()] > heights[i]){
                 int height = heights[stack.removeLast()];
+                //这一步其实就是从后往前，然后
                 int width = i - stack.peekLast()-1;
                 area =Math.max(area,width*height);
             }
