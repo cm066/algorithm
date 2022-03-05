@@ -2,6 +2,7 @@ package arr;
 
 /**
  * @author Administrator
+ *去除掉数组中重复的数
  */
 public class RemoveDuplicates {
     public static void main(String[] args) {

@@ -5,6 +5,7 @@ import java.net.InetAddress;
 /**
  * @author cm
  * @create 2021/12/15-10:39 下午
+ * 给定两个有序数组求中位数
  */
 public class FindMedianSortedArrays {
     public static void main(String[] args) {
@@ -18,7 +19,6 @@ public class FindMedianSortedArrays {
 
 
     /**
-     * 这个目前还有问题
      * @param nums1
      * @param nums2
      * @return
@@ -76,8 +76,6 @@ public class FindMedianSortedArrays {
      * @return 返回两个有序数组的中位数
      * 这里要考虑两个数组的总数是偶数个还是奇数个，若是偶数个还需要记录下中间那个数的上一个数，
      * 若是奇数个则不用记录上一个，也可以考虑把两个数组放大一个数组中去，然后在计算
-     *
-     * 这是一个错误的解答
      */
     public static double findMedianSortedArrays1(int[] nums1, int[] nums2) {
         int totalLength = (nums1.length + nums2.length);
