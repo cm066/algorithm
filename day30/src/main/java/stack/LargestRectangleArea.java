@@ -8,6 +8,10 @@ import java.util.Deque;
  * @author cm
  * @create 2022/1/16-7:22 下午
  * 84. 柱状图中最大的矩形 困难
+ *
+输入：heights = [2,1,5,6,2,3]
+输出：10
+解释：最大的矩形为图中红色区域，面积为 10
  */
 public class LargestRectangleArea {
     public static void main(String[] args) {
