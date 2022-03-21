@@ -42,6 +42,7 @@ public class Merge {
         if (intervals.length == 0) {
             return new int[0][2];
         }
+        //进行排序操作s
         Arrays.sort(intervals, new Comparator<int[]>() {
             @Override
             public int compare(int[] interval1, int[] interval2) {

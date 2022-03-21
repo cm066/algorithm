@@ -23,6 +23,13 @@ public class PathSum {
     public static void main(String[] args) {
 
     }
+
+    /**
+     * 这里还有问题
+     * @param root
+     * @param targetSum
+     * @return
+     */
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> combine = new ArrayList<>();
