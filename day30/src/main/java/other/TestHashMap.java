@@ -3,6 +3,7 @@ package other;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Stack;
+import java.util.concurrent.Executors;
 
 /**
  * @author cm
@@ -10,6 +11,10 @@ import java.util.Stack;
  */
 public class TestHashMap {
     public static void main(String[] args) {
+//        Executors.newFixedThreadPool(5);
+//        Executors.newSingleThreadExecutor();
+//        Executors.newCachedThreadPool();
+//        Executors.newScheduledThreadPool();
         HashMap<Long,String> map = new HashMap<>();
         map.put(0L,"2");
         map.put(1L,"3");
