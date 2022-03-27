@@ -13,6 +13,40 @@ public class LongestPalindrome {
 //        String s1 = longestPalindrome(s);
 //        System.out.println(s1);
     }
+
+    public static String dp1(String s){
+        if (s == null){
+            return s;
+        }
+        int n = s.length();
+        if(n < 2){
+            return s;
+        }
+        boolean[][] dp = new boolean[n][n];
+        //自己跟自己肯定是相等的，填充对角线
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = true;
+        }
+        int max = 1,start = 0;
+        for (int j = 1; j < n; j++) {
+            for (int i = 0; i < n-1 && i < j; i++) {
+                if (s.charAt(i) != s.charAt(j)){
+                    dp[i][j] = false;
+                }else {
+                    if (j - i < 3){
+                        dp[i][j] = true;
+                    }else {
+                        dp[i][j] = dp[i+1][j-1];
+                    }
+                }
+                if (dp[i][j] && j -i +1 > max){
+                    start = i;
+                    max = j-i+1;
+                }
+            }
+        }
+        return s.substring(start,start+max);
+    }
     public static String dp(String s){
       int len = s.length();
       if (len < 2){

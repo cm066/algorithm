@@ -2,8 +2,10 @@ package other;
 
 import heap.Test;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * @author cm
@@ -14,6 +16,8 @@ public class ThreadPool {
     private static Object obj = new Object();
     public static void main(String[] args) throws InterruptedException {
         ExecutorService pool = Executors.newFixedThreadPool(5);
+//        Future<Object> submit = pool.submit(new Callable<Object>() {
+//        });
         pool.execute(()->{
             System.out.println(1);
             while (true){}

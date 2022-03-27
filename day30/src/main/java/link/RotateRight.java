@@ -1,5 +1,6 @@
 package link;
 
+import heap.Heap;
 import node.ListNode;
 
 /**
@@ -18,9 +19,28 @@ import node.ListNode;
  */
 public class RotateRight {
     public static void main(String[] args) {
-
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        ListNode n5 = new ListNode(5);
+        n4.next = n5;
+        n3.next = n4;
+        n2.next = n3;
+        n1.next = n2;
+        ListNode listNode = trotateRight(n1, 2);
+        printNode(listNode);
     }
 
+    public static void printNode(ListNode head){
+        if (head == null){
+            return;
+        }
+        while (head != null){
+            System.out.println(head.val);
+            head = head.next;
+        }
+    }
     /**
      * 把链表连城一个环，
      * 然后我们找到新链表的最后一个节点（即原链表的第 (n - 1) - (k mod n)个节点）
@@ -28,7 +48,7 @@ public class RotateRight {
      * @param k
      * @return
      */
-    public ListNode trotateRight(ListNode head, int k) {
+    public static ListNode trotateRight(ListNode head, int k) {
         if (head == null || head.next == null || k == 0){
             return head;
         }
