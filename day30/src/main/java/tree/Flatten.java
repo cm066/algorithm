@@ -27,6 +27,53 @@ public class Flatten {
     public static void main(String[] args) {
 
     }
+    public void flatten2(TreeNode root) {
+        TreeNode curr = root;
+        while (curr != null){
+            if (curr.left != null){
+                TreeNode next = curr.left;
+                TreeNode predecessor = next;
+                //这一步是找到当前左子树的最右节点，是为了连接当前节点的右子树
+                while (predecessor.right != null){
+                    predecessor = predecessor.right;
+                }
+                //这一步就是把左子树和右子树连接起来
+                predecessor.right = curr.right;
+                //这一步也是转化链表的关键。将当前的节点的左子树设为null
+                curr.left = null;
+                //这一步是当前节点的右子树设为
+                curr.right  = next;
+            }
+            curr = curr.right;
+        }
+    }
+
+    //采用空间复杂度为O(1)
+    public void flatten1(TreeNode root) {
+        if (root == null){
+            return;
+        }
+        root = helper(root);
+    }
+    public TreeNode helper(TreeNode root){
+        if (root == null){
+            return null;
+        }
+        TreeNode l = helper(root.left);
+        TreeNode r = helper(root.right);
+        if (l == null){
+            root.right = r;
+        }else {
+            root.right = l;
+            TreeNode curr = l;
+            while (curr.right != null){
+                curr = curr.right;
+            }
+            curr.right = r;
+            root.left = null;
+        }
+        return root;
+    }
     public void flatten(TreeNode root) {
         if (root == null){
             return;
