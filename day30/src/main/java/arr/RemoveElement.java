@@ -14,7 +14,7 @@ package arr;
  */
 public class RemoveElement {
     public static void main(String[] args) {
-        int[] nums = {0,1,2,2,3,0,4};
+        int[] nums = {0,1,2,2,3,0,4,2};
         int i = removeElement(nums, 2);
         System.out.println(i);
     }
@@ -28,10 +28,25 @@ public class RemoveElement {
             if (nums[left] == val){
                 nums[left] = nums[right-1];
                 right--;
+                //这里没有进行left++，是处理后面移动过来的元素和val的值也是相等
             }else {
                 left++;
             }
         }
         return left;
+    }
+    public int removeElement1(int[] nums, int val) {
+
+        // 快慢指针
+        int fastIndex = 0;
+        int slowIndex;
+        for (slowIndex = 0; fastIndex < nums.length; fastIndex++) {
+            if (nums[fastIndex] != val) {
+                nums[slowIndex] = nums[fastIndex];
+                slowIndex++;
+            }
+        }
+        return slowIndex;
+
     }
 }

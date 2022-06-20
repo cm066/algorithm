@@ -1,6 +1,5 @@
 package stack;
 
-import sun.nio.cs.FastCharsetProvider;
 
 import java.util.Stack;
 
