@@ -1,6 +1,8 @@
 package tanxin;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @author cm
@@ -32,6 +34,40 @@ import java.util.LinkedHashMap;
  */
 public class CoinChange2 {
     public static void main(String[] args) {
+        int[] coins = {1, 2, 5};
+        int i = coinChange(coins, 5);
+        System.out.println(i);
+    }
+    public static int coinChangeDP(int[] coins,int amount){
 
+        int[] dp = new int[amount+1];
+        dp[0] = 1;
+        for (int coin : coins) {
+            for (int i = coin; i <= amount; i++) {
+                dp[i] += dp[i - coin];
+            }
+        }
+        return dp[amount];
+    }
+    public static int coinChange(int[] coins,int amount){
+        List<List<Integer>> combine = new ArrayList<>();
+        helper(combine,new ArrayList<>(),coins,amount,0);
+        return combine.size();
+    }
+
+    public static void helper(List<List<Integer>> combine,List<Integer> path,int[] coins,int amount,int index){
+        if (amount == 0){
+            combine.add(new ArrayList<>(path));
+            return;
+        }
+        if (amount < 0){
+            return;
+        }
+        //每次选择的硬币只能从当前往后，不然就会出现重复的
+        for (int i = index; i < coins.length; i++) {
+            path.add(coins[i]);
+            helper(combine,path,coins,amount-coins[i],i);
+            path.remove(path.size()-1);
+        }
     }
 }
