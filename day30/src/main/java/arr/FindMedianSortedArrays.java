@@ -13,8 +13,11 @@ public class FindMedianSortedArrays {
 //        int[] num2 = {3,4};
         int[] num1 = {2};
         int[] num2 = {};
-        double v = findMedianSortedArrays(num1, num2);
-        System.out.println(v);
+        int[] nums1 = {1,2,4,7};
+        int[] nums2 = {3,5,8,9};
+//        double v = findMedianSortedArrays(num1, num2);
+        double medianSortedArrays = findMedianSortedArrays(nums1, nums2);
+        System.out.println(medianSortedArrays);
     }
 
 
@@ -85,8 +88,8 @@ public class FindMedianSortedArrays {
         int index = 0;
         int midNumUp = 0;
         while (index < midLength){
-            int tmp1 = n1;
-            int tmp2 = n2;
+//            int tmp1 = n1;
+//            int tmp2 = n2;
             if (nums1[n1] <= nums2[n2]){
                 midNumUp = nums1[n1];
                 n1++;
