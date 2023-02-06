@@ -15,4 +15,14 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public static void printNode(ListNode head){
+        if (head == null){
+            return;
+        }
+        while (head != null){
+            System.out.println(head.val);
+            head = head.next;
+        }
+    }
 }
